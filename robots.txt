@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ranazainrajpoot078-sudo.github.io/zain/sitemap.xml
