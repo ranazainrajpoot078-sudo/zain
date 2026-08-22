@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobile Accessories Catalog</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f4f7fb;color:#1f2937}.hero{background:linear-gradient(135deg,#111827,#2563eb);color:white;text-align:center;padding:35px 15px}.hero h1{margin:0 0 8px;font-size:32px}.hero p{margin:0;opacity:.9}.wrap{max-width:1100px;margin:25px auto;padding:0 15px}.search{width:100%;padding:14px 16px;border:1px solid #d1d5db;border-radius:10px;font-size:16px;margin-bottom:20px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}.card{background:white;border-radius:14px;padding:20px;box-shadow:0 4px 15px rgba(0,0,0,.08);transition:.2s}.card:hover{transform:translateY(-3px)}.cat{display:inline-block;background:#e0ecff;color:#1d4ed8;font-weight:bold;font-size:12px;padding:6px 9px;border-radius:20px}.card h2{font-size:19px;margin:13px 0 8px}.price{font-size:21px;font-weight:bold;color:#16a34a;margin:8px 0}.spec{color:#6b7280;line-height:1.5;font-size:14px}.footer{text-align:center;padding:25px;color:#6b7280}
+</style>
+</head>
+<body>
+<header class="hero"><h1>Mobile Accessories Catalog</h1><p>Quality mobile accessories at affordable prices</p></header>
+<div class="wrap"><input id="search" class="search" type="text" placeholder="Search products..." onkeyup="filterProducts()"><div id="products" class="grid"></div></div>
+<div class="footer">© 2026 Mobile Accessories Catalog</div>
+<script>
+const products=[
+['CABLE','Real USB-C Cable',200,'Reversible USB-C, 1m, PD fast charging'],
+['CABLE','Oteam Data Cable 3.1A',300,'Micro USB, smart chip fast charging'],
+['CHARGER','Gen-Tec G35 3-USB Charger',600,'3 ports, 4.2A total output'],
+['CABLE','Oteam USB-C Braided Cable',350,'3.1A fast charge, reinforced braid'],
+['CHARGER','Gen-Tec G30 Quick Charger',400,'3.1A, Qualcomm fast charging'],
+['EARPHONE','BlueSpectrum J42 (White)',300,'14.2mm driver, mic & remote, 3.5mm'],
+['EARPHONE','R.T RT-147 Stereo Earphone',350,'Dynamic bass, mic, noise isolation'],
+['EARPHONE','Realme M-1 Earphone',300,'14.2mm driver, inline mic & remote'],
+['EARPHONE','BlueSpectrum J42 (Black)',300,'Deep bass driver, tangle-free cable'],
+['CABLE','Oteam Lightning Cable 3.1A',400,'Lightning to USB-A, LED indicator'],
+['GAMING','R.T A66 Gaming Headset',350,'Surround sound, HD mic, 1.2m cable'],
+['EARPHONE','R.T RT-110 Voice Earphone',350,'10mm driver, bass boost, in-line mic'],
+['CHARGER','Oraimo Cannon 3 Mini',400,'Compact charger, 365-day warranty'],
+['EARPHONE','R.T RT-147 HiFi Earphone',350,'Metallic chamber, powerful bass'],
+['CHARGER','HMZ One Light Charger',250,'Type-C, LED charging indicator'],
+['CABLE','AORAX Micro USB Cable 3.4A',250,'Braided, 1m, fast charge support']
+];
+function render(list=products){document.getElementById('products').innerHTML=list.map(p=>`<div class="card"><span class="cat">${p[0]}</span><h2>${p[1]}</h2><div class="price">PKR ${p[2]}</div><div class="spec">${p[3]}</div></div>`).join('')}
+function filterProducts(){const q=document.getElementById('search').value.toLowerCase();render(products.filter(p=>p.join(' ').toLowerCase().includes(q)))}render();
+</script>
+</body>
+</html>
