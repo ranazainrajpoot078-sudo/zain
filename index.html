@@ -232,6 +232,7 @@
   .admin-stock-row{ display:flex; gap:6px; align-items:center; margin-top:6px; }
   .admin-stock-input{ flex:1; min-width:0; padding:7px 8px; border:1px solid var(--line); border-radius:5px; font-family:'Manrope'; font-size:12px; }
   .admin-stock-save{ background:var(--amber-dark)!important; color:#fff!important; }
+  .admin-stock-remove{ background:var(--danger)!important; color:#fff!important; }
   .admin-stock-current{ font-family:'Space Mono'; font-size:11px; color:var(--muted); margin-top:6px; }
 
   /* ===== ABOUT ===== */
@@ -983,6 +984,11 @@
     var add = parseInt(qty, 10) || 0;
     setStock(id, current + add);
   }
+  function removeStock(id, qty){
+    var current = getStock(id);
+    var sub = parseInt(qty, 10) || 0;
+    setStock(id, Math.max(0, current - sub));
+  }
   function stockBadgeHTML(id){
     var count = getStock(id);
     if(count > 0){
@@ -1078,8 +1084,9 @@
         '<button class="admin-price-save" data-save-price="'+p.id+'" data-save-type="'+p.type+'">Save Price</button>' +
         '<button data-remove="'+p.id+'" data-remove-type="'+p.type+'">Remove</button></div>' +
         '<div class="admin-stock-current" data-stock-current="'+p.id+'">Current Stock: '+stockCount+'</div>' +
-        '<div class="admin-stock-row"><input class="admin-stock-input" type="number" min="1" data-stock-id="'+p.id+'" placeholder="Qty to add">' +
-        '<button class="admin-btn admin-stock-save" data-add-stock="'+p.id+'">+ Add Stock</button></div></div>';
+        '<div class="admin-stock-row"><input class="admin-stock-input" type="number" min="1" data-stock-id="'+p.id+'" placeholder="Qty">' +
+        '<button class="admin-btn admin-stock-save" data-add-stock="'+p.id+'">+ Add Stock</button>' +
+        '<button class="admin-btn admin-stock-remove" data-remove-stock="'+p.id+'">− Remove Stock</button></div></div>';
     }).join('');
 
     listBox.querySelectorAll('button[data-save-price]').forEach(function(btn){
@@ -1107,6 +1114,19 @@
         var qty = input ? input.value : '';
         if(!qty || parseInt(qty, 10) <= 0){ if(input) input.focus(); return; }
         addStock(id, qty);
+        if(input) input.value = '';
+        renderAdminList();
+        renderStoreFront();
+      });
+    });
+
+    listBox.querySelectorAll('button[data-remove-stock]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var id = btn.getAttribute('data-remove-stock');
+        var input = listBox.querySelector('input[data-stock-id="'+id+'"]');
+        var qty = input ? input.value : '';
+        if(!qty || parseInt(qty, 10) <= 0){ if(input) input.focus(); return; }
+        removeStock(id, qty);
         if(input) input.value = '';
         renderAdminList();
         renderStoreFront();
