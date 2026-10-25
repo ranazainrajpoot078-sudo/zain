@@ -89,6 +89,10 @@ main{flex:1;padding-bottom:96px}
 .svc-warn{margin:12px 0 0;background:#fef3c7;color:#92400e;border-radius:12px;padding:11px 12px;font-size:13px;line-height:1.6}
 @media (prefers-color-scheme: dark){ .svc-warn{background:#2b1f08;color:#fcd34d} }
 .svc-note{margin:10px 0 13px;font-size:12.5px;color:var(--muted);line-height:1.6}
+.svc-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:13px 0 4px}
+.svc-act{display:flex;flex-direction:column;align-items:center;gap:5px;background:var(--card2);border:1.5px solid var(--green);border-radius:14px;padding:12px 4px 10px;font-weight:800;font-size:12.5px;color:var(--ink);text-decoration:none;text-align:center;line-height:1.25}
+.svc-act .ic{font-size:22px;line-height:1}
+.svc-act:active{transform:scale(.96)}
 .perks{padding:0 14px;display:grid;gap:9px}
 .perk{display:flex;gap:11px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 13px;align-items:flex-start}
 .perk .ic{font-size:19px;line-height:1.2}
@@ -304,9 +308,15 @@ main{flex:1;padding-bottom:96px}
           <ul>
             <li>Mobile software ka masla — shop par check karke theek kiya jata hai</li>
             <li>Mobile reset service — phone reset karwana ho to shop par le aayein</li>
+            <li>Lock unlock service — apne mobile ka pattern / PIN lock bhool jayein to shop par unlock karwaya jata hai</li>
           </ul>
+          <div class="svc-actions">
+            <a class="svc-act" href="https://wa.me/923072595285?text=Assalam-o-Alaikum%2C%20mujhe%20apne%20mobile%20ka%20software%20karwana%20hai.%20Tafseel%20bata%20dein." target="_blank" rel="noopener"><span class="ic">💻</span>Software<br>Karwayein</a>
+            <a class="svc-act" href="https://wa.me/923072595285?text=Assalam-o-Alaikum%2C%20mujhe%20apna%20mobile%20reset%20karwana%20hai.%20Tafseel%20bata%20dein." target="_blank" rel="noopener"><span class="ic">🔄</span>Mobile<br>Reset</a>
+            <a class="svc-act" href="https://wa.me/923072595285?text=Assalam-o-Alaikum%2C%20mere%20apne%20mobile%20ka%20lock%20(pattern%2FPIN)%20unlock%20karwana%20hai.%20Tafseel%20bata%20dein." target="_blank" rel="noopener"><span class="ic">🔓</span>Lock<br>Unlock</a>
+          </div>
           <p class="svc-warn">⚠️ <b>Reset se pehle apni photos aur contacts ka backup zaroor bana lein</b> — reset ke baad phone ka data wapas nahi aata.</p>
-          <p class="svc-note">Ye service sirf shop par aa kar hoti hai — app ya phone par remotely nahi ki jati. Pehle WhatsApp par booking / tafseel confirm kar lein.</p>
+          <p class="svc-note">Ye service sirf shop par aa kar hoti hai — app ya phone par remotely nahi ki jati. Lock unlock sirf apne mobile ke liye hota hai, ownership proof (bill / box / CNIC) shop par dikhana hoga. Pehle WhatsApp par booking / tafseel confirm kar lein.</p>
           <a class="btn svc-site" style="width:100%;justify-content:center;padding:14px;font-size:14.5px" href="https://muse.ai/s/mobile-software-website-xkr6vhtcnxu16/n-Bmd-gsTEzgoBgQnTx_FsSKrI_cUIeOvTp_iA6d3KY" target="_blank" rel="noopener">🔧 Mobile Software Service — Website Kholein →</a>
           <a class="btn wa" style="width:100%;justify-content:center;padding:13px;margin-top:9px" href="https://wa.me/923072595285?text=Assalam-o-Alaikum%2C%20mujhe%20mobile%20software%20%2F%20reset%20service%20chahiye.%20Tafseel%20bata%20dein." target="_blank" rel="noopener">💬 WhatsApp par Service Book Karein</a>
         </div>
@@ -380,12 +390,14 @@ main{flex:1;padding-bottom:96px}
         </div>
 
         <div class="info-card">
-          <h3>🔧 Mobile Software &amp; Reset Service</h3>
-          <p style="margin:0 0 10px;font-size:13.5px;color:var(--muted);line-height:1.6">Shop par mobile software aur mobile reset ki service bhi milti hai.</p>
+          <h3>🔧 Mobile Software, Reset &amp; Lock Unlock</h3>
+          <p style="margin:0 0 10px;font-size:13.5px;color:var(--muted);line-height:1.6">Shop par mobile software, mobile reset aur apne mobile ka lock unlock karwane ki service bhi milti hai.</p>
           <div class="kv"><span class="k">Backup</span><span class="v">Reset se pehle photos aur contacts ka backup zaroor bana lein — reset ke baad data wapas nahi aata</span></div>
           <div class="kv"><span class="k">Tareeqa</span><span class="v">Service sirf shop par aa kar hoti hai — remotely nahi ki jati</span></div>
+          <div class="kv"><span class="k">Lock Unlock</span><span class="v">Apne mobile ka pattern / PIN lock unlock — ownership proof (bill / box / CNIC) shop par dikhana hoga</span></div>
           <div class="btn-row">
             <a class="btn svc-site" href="https://muse.ai/s/mobile-software-website-xkr6vhtcnxu16/n-Bmd-gsTEzgoBgQnTx_FsSKrI_cUIeOvTp_iA6d3KY" target="_blank" rel="noopener">🔧 Mobile Software Service — Website Kholein →</a>
+            <a class="btn wa" href="https://wa.me/923072595285?text=Assalam-o-Alaikum%2C%20mere%20apne%20mobile%20ka%20lock%20(pattern%2FPIN)%20unlock%20karwana%20hai.%20Tafseel%20bata%20dein." target="_blank" rel="noopener">🔓 Lock Unlock — WhatsApp</a>
             <a class="btn wa" href="https://wa.me/923072595285?text=Assalam-o-Alaikum%2C%20mujhe%20mobile%20software%20%2F%20reset%20service%20chahiye.%20Tafseel%20bata%20dein." target="_blank" rel="noopener">💬 WhatsApp par Book Karein</a>
           </div>
         </div>
